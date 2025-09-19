@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Para o Ítalo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://preview.redd.it/g9qs6xez97871.jpg?auto=webp&s=e2b7e9965f9e1ac89ed618fac638f2a768081571');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+            /* Remove as barras de rolagem */
+        }
+
+        .container {
+            background-color: rgba(0, 0, 50, 0.8);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            max-width: 80%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .show-button {
+            background-color: #f0f0f0;
+            color: #000032;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .show-button:hover {
+            background-color: #ADD8E6;
+        }
+
+        .spotify-container {
+            margin-top: 30px;
+            display: none;
+            /* Essa linha esconde o container */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Uma pausa para o que realmente importa!</h1>
+        <p>Italo, a vida é feita de ciclos, e nem sempre o caminho é fácil. Mas é na forma como lidamos com os desafios que
+            encontramos a nossa força.<br>Lembre-se de que, mesmo nas noites mais escuras, sempre há estrelas a brilhar. E que, depois de toda
+            tempestade, o sol sempre volta a brilhar.</p>
+
+        <button id="toggleButton" class="show-button" onclick="togglePlayer()">Ouça a música para você</button>
+
+        <div id="spotifyPlayer" class="spotify-container">
+            <p>Espero que consiga absorver o que essa música tem de melhor pra ofereçer:</p>
+            <iframe data-testid="embed-iframe" style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/60VZ0MykayPm8zLNOTSfG2?utm_source=generator" width="100%"
+                height="100" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function togglePlayer() {
+            var player = document.getElementById('spotifyPlayer');
+            var button = document.getElementById('toggleButton');
+            if (player.style.display === 'none' || player.style.display === '') {
+                player.style.display = 'block';
+                button.textContent = 'Esconder player';
+            } else {
+                player.style.display = 'none';
+                button.textContent = 'Ouça a música para você';
+            }
+        }
+    </script>
+</body>
+
+</html>
